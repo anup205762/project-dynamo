@@ -1,0 +1,62 @@
+================================================================
+BUGGED SOLUTION — verifier must catch it (reward 0)
+================================================================
+
+--- Bugs introduced in solution/solve.py ---
+
+  "total_requests": total * 2,   # BUG: doubled  ->  produces 12 instead of 6
+  "top_path": "/about.html",     # BUG: wrong path -> should be /index.html
+
+Full bugged snippet:
+
+  with open("/app/report.json", "w") as out:
+      json.dump(
+          {
+              "total_requests": total * 2,   # BUG: doubled
+              "unique_ips": len(ips),
+              "top_path": "/about.html",     # BUG: wrong path
+          },
+          out,
+      )
+
+
+--- harbor run -p log-report -a oracle (bugged) ---
+
+  Mean reward: 0.000   (1 trial, 0 exceptions)
+
+
+--- reward.txt ---
+0
+
+
+--- ctrf.json summary ---
+tool:    pytest 8.4.1
+tests:   4
+passed:  2
+failed:  2
+
+tests:
+  PASSED  test_outputs.py::test_report_saved
+          (file exists and is valid JSON — not sufficient alone)
+
+  FAILED  test_outputs.py::test_total_requests
+          AssertionError: expected 6, got 12
+          assert 12 == 6
+
+  PASSED  test_outputs.py::test_unique_ips
+          (unique_ips=3 was not bugged — correctly passes)
+
+  FAILED  test_outputs.py::test_top_path
+          AssertionError: expected /index.html, got /about.html
+          assert '/about.html' == '/index.html'
+
+
+================================================================
+CONCLUSION
+================================================================
+The old verifier (existence + non-empty only) would have given this
+bugged solution reward 1 — the file exists and is non-empty.
+
+The new verifier catches both wrong values and scores reward 0.
+solution/solve.py has been restored to the correct implementation.
+================================================================

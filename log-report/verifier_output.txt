@@ -1,0 +1,54 @@
+================================================================
+RUN 1: harbor run -p log-report -a oracle   (expected reward 1)
+================================================================
+
+--- reward.txt ---
+1
+
+--- ctrf.json summary ---
+tool:    pytest 8.4.1
+tests:   4
+passed:  4
+failed:  0
+
+tests:
+  PASSED  test_outputs.py::test_report_saved
+  PASSED  test_outputs.py::test_total_requests
+  PASSED  test_outputs.py::test_unique_ips
+  PASSED  test_outputs.py::test_top_path
+
+
+================================================================
+RUN 2: harbor run -p log-report --agent nop   (expected reward 0)
+================================================================
+
+--- reward.txt ---
+0
+
+--- ctrf.json summary ---
+tool:    pytest 8.4.1
+tests:   4
+passed:  0
+failed:  4
+
+tests:
+  FAILED  test_outputs.py::test_report_saved
+          AssertionError: report.json not found
+
+  FAILED  test_outputs.py::test_total_requests
+          FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'
+
+  FAILED  test_outputs.py::test_unique_ips
+          FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'
+
+  FAILED  test_outputs.py::test_top_path
+          FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'
+
+
+================================================================
+VERDICT
+================================================================
+oracle  -> reward 1   PASS (all 4 tests passed, correct values verified)
+nop     -> reward 0   PASS (all 4 tests failed, no output produced)
+Verifier correctly discriminates a real solution from a no-op.
+================================================================

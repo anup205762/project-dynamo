@@ -1,0 +1,68 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 4,
+            "passed": 0,
+            "failed": 4,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1784542151.7361283,
+            "stop": 1784542151.785218
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_report_saved",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.00048529100001815095,
+                "start": 1784542151.7405274,
+                "stop": 1784542151.7453346,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_report_saved():\n        \"\"\"Criterion: 'Save your findings so they can be reviewed' \u2014 report.json exists and is valid JSON.\"\"\"\n>       assert REPORT.exists(), \"report.json not found\"\nE       AssertionError: report.json not found\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/app/report.json').exists\n\n/tests/test_outputs.py:9: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_total_requests",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.00036066600000594917,
+                "start": 1784542151.7454212,
+                "stop": 1784542151.758614,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_total_requests():\n        \"\"\"Criterion: 'how many requests there were' \u2014 total_requests must equal 6.\"\"\"\n>       data = json.loads(REPORT.read_text())\n                          ^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:16: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/usr/local/lib/python3.12/pathlib.py:1027: in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = PosixPath('/app/report.json'), mode = 'r', buffering = -1\nencoding = 'locale', errors = None, newline = None\n\n    def open(self, mode='r', buffering=-1, encoding=None,\n             errors=None, newline=None):\n        \"\"\"\n        Open the file pointed to by this path and return a file object, as\n        the built-in open() function does.\n        \"\"\"\n        if \"b\" not in mode:\n            encoding = io.text_encoding(encoding)\n>       return io.open(self, mode, buffering, encoding, errors, newline)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'\n\n/usr/local/lib/python3.12/pathlib.py:1013: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_unique_ips",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0004781670000113536,
+                "start": 1784542151.7587316,
+                "stop": 1784542151.7725253,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_unique_ips():\n        \"\"\"Criterion: 'the clients involved' \u2014 unique_ips must equal 3.\"\"\"\n>       data = json.loads(REPORT.read_text())\n                          ^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:22: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/usr/local/lib/python3.12/pathlib.py:1027: in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = PosixPath('/app/report.json'), mode = 'r', buffering = -1\nencoding = 'locale', errors = None, newline = None\n\n    def open(self, mode='r', buffering=-1, encoding=None,\n             errors=None, newline=None):\n        \"\"\"\n        Open the file pointed to by this path and return a file object, as\n        the built-in open() function does.\n        \"\"\"\n        if \"b\" not in mode:\n            encoding = io.text_encoding(encoding)\n>       return io.open(self, mode, buffering, encoding, errors, newline)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'\n\n/usr/local/lib/python3.12/pathlib.py:1013: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_top_path",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0004145420000156719,
+                "start": 1784542151.7727044,
+                "stop": 1784542151.7850704,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_top_path():\n        \"\"\"Criterion: 'which pages were popular' \u2014 top_path must be /index.html.\"\"\"\n>       data = json.loads(REPORT.read_text())\n                          ^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:28: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/usr/local/lib/python3.12/pathlib.py:1027: in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = PosixPath('/app/report.json'), mode = 'r', buffering = -1\nencoding = 'locale', errors = None, newline = None\n\n    def open(self, mode='r', buffering=-1, encoding=None,\n             errors=None, newline=None):\n        \"\"\"\n        Open the file pointed to by this path and return a file object, as\n        the built-in open() function does.\n        \"\"\"\n        if \"b\" not in mode:\n            encoding = io.text_encoding(encoding)\n>       return io.open(self, mode, buffering, encoding, errors, newline)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'\n\n/usr/local/lib/python3.12/pathlib.py:1013: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            }
+        ]
+    }
+}

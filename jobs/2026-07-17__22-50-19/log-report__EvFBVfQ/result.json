@@ -1,0 +1,95 @@
+{
+    "id": "37cdf2bd-6333-466c-bebb-a419f13fc845",
+    "task_name": "dynamo/log-report",
+    "trial_name": "log-report__EvFBVfQ",
+    "trial_uri": "file:///Users/a4anup/Documents/edekkanaAi/HandshakeAI/jobs/2026-07-17__22-50-19/log-report__EvFBVfQ",
+    "task_id": {
+        "path": "log-report"
+    },
+    "source": null,
+    "task_checksum": "aa6cafccc513cad79fb5ed7841607291db83a7485d3eb841b146fba2a24fe7c4",
+    "config": {
+        "task": {
+            "path": "log-report",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "log-report__EvFBVfQ",
+        "trials_dir": "jobs/2026-07-17__22-50-19",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "a2d0be69-83e1-48b2-82b8-170faba9482c"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "exception_info": {
+        "exception_type": "RuntimeError",
+        "exception_message": "Docker compose command failed for environment log-report. Command: docker compose --project-name log-report__evfbvfq__env --project-directory /Users/a4anup/Documents/edekkanaAi/HandshakeAI/log-report/environment -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmphqhoj4pp/log-report__EvFBVfQ__env-docker-compose-resources.json -f /Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmp1g43ecj7/docker-compose-environment.json -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmpumyuqv42/docker-compose-mounts.json build. Return code: 1. Stdout:  Image log-report__evfbvfq__env-main Building \n#1 [internal] load local bake definitions\n#1 reading from stdin 616B done\n#1 DONE 0.0s\nfailed to solve: write /var/lib/desktop-containerd/daemon/io.containerd.metadata.v1.bolt/meta.db: input/output error\n\n. Stderr: None. ",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 350, in run\n    await self._prepare()\n  File \"/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 379, in _prepare\n    await self._setup_agent_environment()\n  File \"/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 1099, in _setup_agent_environment\n    await self._start_agent_environment()\n  File \"/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 1105, in _start_agent_environment\n    await asyncio.wait_for(\n  File \"/Users/a4anup/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py\", line 891, in start\n    await self._run_docker_compose_command([\"build\"])\n  File \"/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py\", line 656, in _run_docker_compose_command\n    raise RuntimeError(\nRuntimeError: Docker compose command failed for environment log-report. Command: docker compose --project-name log-report__evfbvfq__env --project-directory /Users/a4anup/Documents/edekkanaAi/HandshakeAI/log-report/environment -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmphqhoj4pp/log-report__EvFBVfQ__env-docker-compose-resources.json -f /Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmp1g43ecj7/docker-compose-environment.json -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmpumyuqv42/docker-compose-mounts.json build. Return code: 1. Stdout:  Image log-report__evfbvfq__env-main Building \n#1 [internal] load local bake definitions\n#1 reading from stdin 616B done\n#1 DONE 0.0s\nfailed to solve: write /var/lib/desktop-containerd/daemon/io.containerd.metadata.v1.bolt/meta.db: input/output error\n\n. Stderr: None. \n",
+        "occurred_at": "2026-07-17T22:50:21.225942"
+    },
+    "started_at": "2026-07-17T17:20:20.760370Z",
+    "finished_at": "2026-07-17T17:20:21.821734Z",
+    "environment_setup": {
+        "started_at": "2026-07-17T17:20:20.844350Z",
+        "finished_at": "2026-07-17T17:20:21.222460Z"
+    },
+    "agent_setup": null,
+    "agent_execution": null,
+    "verifier": null,
+    "step_results": null
+}

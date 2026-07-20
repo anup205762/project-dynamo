@@ -1,0 +1,49 @@
+Trial log-report__EvFBVfQ failed: Docker compose command failed for environment log-report. Command: docker compose --project-name log-report__evfbvfq__env --project-directory /Users/a4anup/Documents/edekkanaAi/HandshakeAI/log-report/environment -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmphqhoj4pp/log-report__EvFBVfQ__env-docker-compose-resources.json -f /Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmp1g43ecj7/docker-compose-environment.json -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmpumyuqv42/docker-compose-mounts.json build. Return code: 1. Stdout:  Image log-report__evfbvfq__env-main Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 616B done
+#1 DONE 0.0s
+failed to solve: write /var/lib/desktop-containerd/daemon/io.containerd.metadata.v1.bolt/meta.db: input/output error
+
+. Stderr: None. 
+Collecting main service artifacts
+Failed to download artifact '/app/report.json' from service 'main' (best-effort)
+Traceback (most recent call last):
+  File "/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 350, in run
+    await self._prepare()
+  File "/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 379, in _prepare
+    await self._setup_agent_environment()
+  File "/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 1099, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 1105, in _start_agent_environment
+    await asyncio.wait_for(
+  File "/Users/a4anup/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 891, in start
+    await self._run_docker_compose_command(["build"])
+  File "/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 656, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment log-report. Command: docker compose --project-name log-report__evfbvfq__env --project-directory /Users/a4anup/Documents/edekkanaAi/HandshakeAI/log-report/environment -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmphqhoj4pp/log-report__EvFBVfQ__env-docker-compose-resources.json -f /Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmp1g43ecj7/docker-compose-environment.json -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmpumyuqv42/docker-compose-mounts.json build. Return code: 1. Stdout:  Image log-report__evfbvfq__env-main Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 616B done
+#1 DONE 0.0s
+failed to solve: write /var/lib/desktop-containerd/daemon/io.containerd.metadata.v1.bolt/meta.db: input/output error
+
+. Stderr: None. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/artifact_handler.py", line 330, in _download_artifact
+    await source_env.service_download_file(
+  File "/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 1052, in service_download_file
+    await self.download_file(source_path, target_path)
+  File "/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 1037, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker_unix.py", line 185, in download_file
+    await self._env._run_docker_compose_command(
+  File "/Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 656, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment log-report. Command: docker compose --project-name log-report__evfbvfq__env --project-directory /Users/a4anup/Documents/edekkanaAi/HandshakeAI/log-report/environment -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmphqhoj4pp/log-report__EvFBVfQ__env-docker-compose-resources.json -f /Users/a4anup/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmp1g43ecj7/docker-compose-environment.json -f /private/var/folders/zt/f597r9v952gbjdykfflzyvbw0000gp/T/tmpumyuqv42/docker-compose-mounts.json cp main:/app/report.json jobs/2026-07-17__22-50-19/log-report__EvFBVfQ/artifacts/app/report.json. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None. 
+Not retrying trial because the maximum number of retries has been reached

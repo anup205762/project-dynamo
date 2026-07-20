@@ -1,0 +1,39 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 4 items
+
+../tests/test_outputs.py .F.F                                            [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_total_requests ______________________________
+
+    def test_total_requests():
+        """Criterion: 'how many requests there were' — total_requests must equal 6."""
+        data = json.loads(REPORT.read_text())
+>       assert data["total_requests"] == 6, f"expected 6, got {data.get('total_requests')}"
+E       AssertionError: expected 6, got 12
+E       assert 12 == 6
+
+/tests/test_outputs.py:17: AssertionError
+________________________________ test_top_path _________________________________
+
+    def test_top_path():
+        """Criterion: 'which pages were popular' — top_path must be /index.html."""
+        data = json.loads(REPORT.read_text())
+>       assert data["top_path"] == "/index.html", f"expected /index.html, got {data.get('top_path')}"
+E       AssertionError: expected /index.html, got /about.html
+E       assert '/about.html' == '/index.html'
+E         
+E         - /index.html
+E         + /about.html
+
+/tests/test_outputs.py:29: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_report_saved
+PASSED ../tests/test_outputs.py::test_unique_ips
+FAILED ../tests/test_outputs.py::test_total_requests - AssertionError: expect...
+FAILED ../tests/test_outputs.py::test_top_path - AssertionError: expected /in...
+========================= 2 failed, 2 passed in 0.01s ==========================

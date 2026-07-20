@@ -1,0 +1,62 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 4,
+            "passed": 2,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1784542300.753707,
+            "stop": 1784542300.766476
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_report_saved",
+                "status": "passed",
+                "duration": 0.00044629199999235425,
+                "start": 1784542300.7585204,
+                "stop": 1784542300.7591226,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_total_requests",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.00045599900005299787,
+                "start": 1784542300.7592077,
+                "stop": 1784542300.764109,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_total_requests():\n        \"\"\"Criterion: 'how many requests there were' \u2014 total_requests must equal 6.\"\"\"\n        data = json.loads(REPORT.read_text())\n>       assert data[\"total_requests\"] == 6, f\"expected 6, got {data.get('total_requests')}\"\nE       AssertionError: expected 6, got 12\nE       assert 12 == 6\n\n/tests/test_outputs.py:17: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_unique_ips",
+                "status": "passed",
+                "duration": 0.0003661660000489064,
+                "start": 1784542300.7641904,
+                "stop": 1784542300.7646868,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_top_path",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0006074589999798263,
+                "start": 1784542300.7647703,
+                "stop": 1784542300.7663188,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_top_path():\n        \"\"\"Criterion: 'which pages were popular' \u2014 top_path must be /index.html.\"\"\"\n        data = json.loads(REPORT.read_text())\n>       assert data[\"top_path\"] == \"/index.html\", f\"expected /index.html, got {data.get('top_path')}\"\nE       AssertionError: expected /index.html, got /about.html\nE       assert '/about.html' == '/index.html'\nE         \nE         - /index.html\nE         + /about.html\n\n/tests/test_outputs.py:29: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}
